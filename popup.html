@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Summarized Text</title>
+    <link rel="stylesheet" type="text/css" href="popup.css" />
+  </head>
+  <body>
+    <form>
+      <label>
+        <input type="radio" name="age" value="0-17" required />
+        Less than 18 years old
+      </label>
+      <br />
+      <label>
+        <input type="radio" name="age" value="18-30" required />
+        18-30 years old
+      </label>
+      <br />
+      <label>
+        <input type="radio" name="age" value="30+" required />
+        More than 30 years old
+      </label>
+      <br />
+      <button type="submit">Summarize</button>
+      <p id="summarized-text"></p>
+    </form>
+    
+    
+    <script src="popup.js"></script>
+  </body>
+</html>
