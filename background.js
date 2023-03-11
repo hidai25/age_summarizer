@@ -1,8 +1,8 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === "summarizeText") {
-    const text = request.text;
+    const { text, age } = request;
     summarizeText(text).then((summarizedText) => {
-      chrome.runtime.sendMessage({ type: "summarizedText", summarizedText });
+      chrome.runtime.sendMessage({ type: "summarizedText", summarizedText, age });
     });
   }
 });

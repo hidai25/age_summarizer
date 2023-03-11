@@ -2,29 +2,41 @@
 <html>
   <head>
     <title>Summarized Text</title>
-    <link rel="stylesheet" type="text/css" href="popup.css" />
+    <link rel="stylesheet" href="popup.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head>
   <body>
-    <form>
-      <label>
-        <input type="radio" name="age" value="0-17" required />
-        Less than 18 years old
-      </label>
-      <br />
-      <label>
-        <input type="radio" name="age" value="18-30" required />
-        18-30 years old
-      </label>
-      <br />
-      <label>
-        <input type="radio" name="age" value="30+" required />
-        More than 30 years old
-      </label>
-      <br />
-      <button type="submit">Summarize</button>
-      <p id="summarized-text"></p>
-    </form>
-    
+    <div class="radio-buttons">
+      
+        <div class="form-container">
+      <form id="summary-form">
+        <div class="radio-buttons-container">
+        <label>
+          <input type="radio" name="age" value="0-17" required />
+          Less than 18 years old
+        </label>
+        <br />
+        <label>
+          <input type="radio" name="age" value="18-30" required />
+          18-30 years old
+        </label>
+        <br />
+        <label>
+          <input type="radio" name="age" value="30+" required />
+          More than 30 years old
+        </label>
+        <div class="submit-buttons">
+        <button type="submit">Summarize</button>
+      </div>
+      </div>
+        <!-- <br /> -->
+        
+        <div class="loader"></div>
+    <div id="summarized-text"></div>
+      </form>
+      </div>
+    </div>
+  </div>
     
     <script src="popup.js"></script>
   </body>
