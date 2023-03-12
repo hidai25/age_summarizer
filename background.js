@@ -18,11 +18,11 @@ const summarizeText = async (text) => {
       },
       body: JSON.stringify({
         prompt: `Summarize this text:\n\n${text}`,
-        max_tokens: 400,
+        max_tokens: 800,
         model: "text-davinci-003",
-        frequency_penalty: 0.5,
-        presence_penalty: 0.5,
-        temperature: 0.35,
+        frequency_penalty: 0.0,
+        presence_penalty: 0.0,
+        temperature: 0.7,
         top_p: 1
       })
     })
@@ -33,4 +33,11 @@ const summarizeText = async (text) => {
   } catch (error) {
     console.error(error);
   }
+
+
+
+
+
 };
+
+

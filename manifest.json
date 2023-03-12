@@ -1,41 +1,51 @@
-    {
+    
+
+{
     "name": "Summarize_by_age",
     "description": "Building a chatgpt based age summarizer",
     "version": "0.1.0",
     "manifest_version": 3,
     "icons": {
+      "16": "./images/icon.png",
+      "32": "./images/icon.png",
+      "48": "./images/icon.png",
+      "128": "./images/icon.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_title": "age-summarizer",
+      "default_popup": "./popup.html",
+      "default_icons": {
         "16": "./images/icon.png",
         "32": "./images/icon.png",
         "48": "./images/icon.png",
         "128": "./images/icon.png"
+      }
     },
-    
-    "background": {
-    "service_worker": "background.js"
-  },
-    "action": {
-        "default_title": "age-summarizer",
-        "default_popup": "./popup.html",
-        "default_icons": {
-            "16": "./images/icon.png",
-            "32": "./images/icon.png",
-            "48": "./images/icon.png",
-            "128": "./images/icon.png"
-        }
-    },
-    "options_page": "./options.html",
     "permissions": [
-        "activeTab",
-        "tabs",
-        "storage",
-        "scripting"
+      "activeTab",
+      "tabs",
+      "storage",
+      "scripting"
     ],
-    "host_permissions": [ "http://*/*", "https://*/*" ],
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ],
     "minimum_chrome_version": "88",
-    "name": "age_summarizer",
-    "permissions": [ "scripting", "tabs", "notifications", "cookies", "storage" ],
-    "web_accessible_resources": [ {
-       "matches": [ "http://*/*", "https://*/*" ],
-       "resources": [ "src/fonts/*.woff", "src/fonts/*.woff2", "src/images/*.png", "src/images/*.svg", "src/images/*.jpg", "src/images/*.gif", "src/js/*.js", "src/css/*.css" ]
-    } ]
-}
+    "content_scripts": [
+      {
+        "matches": [
+          "<all_urls>"
+        ],
+        "css": ["popup.css"],
+        "js": [
+          "content.js"
+        ]
+      }
+    ]
+  }
+  
+ 
