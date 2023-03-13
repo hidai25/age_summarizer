@@ -1,10 +1,6 @@
-chrome.tabs.onActivated.addListener(function() {
-  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-    var currentTabId = tabs[0].id;
-    console.log('currentTabId:', currentTabId);
-  });
-});({ active: true, currentWindow: true }, function (tabs) {
-  var currentTabId = tabs[0].id;
+// Send a message to the background script requesting the current tab ID
+chrome.runtime.sendMessage({ type: "getCurrentTabId" }, function(response) {
+  var currentTabId = response.tabId;
   console.log('currentTabId:', currentTabId);
 
   // Send a message to the background script requesting text to be summarized
@@ -23,12 +19,4 @@ chrome.runtime.onMessage.addListener((message) => {
     // Send the summarized text back to the popup window
     chrome.runtime.sendMessage({ type: "summarizedText", summarizedText: message.summarizedText });
   }
-});
-
-
-chrome.tabs.onActivated.addListener(function() {
-  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-    var currentTabId = tabs[0].id;
-    console.log('currentTabId:', currentTabId);
-  });
 });

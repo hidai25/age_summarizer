@@ -7,6 +7,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
+// Listen for a message from the content script requesting the current tab ID
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.type === "getCurrentTabId") {
+    // Get the current tab ID from the sender tab
+    sendResponse({ tabId: sender.tab.id });
+  }
+});
+
+
 const summarizeText = async (text) => {
   try {
     // Using OpenAI's GPT-3 API to summarize the text

@@ -16,7 +16,7 @@
     },
     "action": {
       "default_title": "age-summarizer",
-      "default_popup": "./popup.html",
+      "default_popup": "popup.html",
       "default_icons": {
         "16": "./images/icon.png",
         "32": "./images/icon.png",
@@ -30,6 +30,7 @@
       "storage",
       "scripting"
     ],
+    
     "host_permissions": [
       "http://*/*",
       "https://*/*"
@@ -37,13 +38,9 @@
     "minimum_chrome_version": "88",
     "content_scripts": [
       {
-        "matches": [
-          "<all_urls>"
-        ],
+        "matches": ["<all_urls>"],
         "css": ["popup.css"],
-        "js": [
-          "content.js"
-        ]
+        "js": ["content.js","popup.js"]
       }
     ]
   }
